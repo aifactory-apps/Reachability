@@ -52,6 +52,14 @@ typedef NS_ENUM(NSInteger, NetworkStatus) {
     ReachableViaWWAN = 1
 };
 
+typedef NS_ENUM(NSUInteger, CellularConnectionType) {
+    CellularConnectionTypeNone,
+    CellularConnectionTypeGPRS,
+    CellularConnectionTypeEdge,
+    CellularConnectionType3G,
+    CellularConnectionType4G
+};
+
 @class Reachability;
 
 typedef void (^NetworkReachable)(Reachability * reachability);
@@ -95,6 +103,7 @@ typedef void (^NetworkReachability)(Reachability * reachability, SCNetworkConnec
 -(BOOL)isInterventionRequired;
 
 -(NetworkStatus)currentReachabilityStatus;
+-(CellularConnectionType)currentCellularConnectionType;
 -(SCNetworkReachabilityFlags)reachabilityFlags;
 -(NSString*)currentReachabilityString;
 -(NSString*)currentReachabilityFlags;
